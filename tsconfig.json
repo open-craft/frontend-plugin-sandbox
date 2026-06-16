@@ -1,13 +1,23 @@
 {
-  "extends": "@edx/typescript-config",
   "compilerOptions": {
-    "jsx": "react",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
     "outDir": "dist",
-    "baseUrl": "./src",
-    "paths": {
-      "*": ["*"]
-    }
+    "skipLibCheck": true
   },
-  "include": ["*.js", ".eslintrc.js", "src/**/*", ],
-  "exclude": ["dist", "node_modules"]
+  "include": ["src/**/*"],
+  "exclude": ["dist/*", "node_modules/*"]
 }

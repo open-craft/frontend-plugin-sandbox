@@ -9,13 +9,13 @@ This repo contains plug-in code for OpenCraft's sandboxes.
 The package can be installed from npm using:
 
 ```bash
-npm install @opencraft/frontend-plugin-sandbox-headers-and-footers
+npm install @opencraft/frontend-plugin-sandbox
 ```
 
 Or to install from GitHub directly:
 
 ```bash
-npm install 'git+https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers.git#branch_tag_or_commit'
+npm install 'git+https://github.com/open-craft/frontend-plugin-sandbox.git#branch_tag_or_commit'
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ This project exposes all slots and their configuration to simplify testing. You
 can add the following to your `env.config.tsx` file to enable all the slots.
 
 ```jsx
-import { slotSettings } from "@opencraft/frontend-plugin-sandbox-headers-and-footers";
+import { slotSettings } from "@opencraft/frontend-plugin-sandbox";
 
 const config = {
     pluginSlots: slotSettings,
@@ -47,7 +47,7 @@ for mfe_app in ["account", "discussions", "learner-dashboard", "learning", "prof
             f"mfe-dockerfile-post-npm-install-{mfe_app}",
             """
     RUN --mount=type=cache,target=/root/.npm,sharing=shared npm install '@edx/frontend-component-header@latest'
-    RUN --mount=type=cache,target=/root/.npm,sharing=shared npm install '@opencraft/frontend-plugin-sandbox-headers-and-footers'
+    RUN --mount=type=cache,target=/root/.npm,sharing=shared npm install '@opencraft/frontend-plugin-sandbox'
     """,
         )
     )
@@ -55,9 +55,9 @@ for mfe_app in ["account", "discussions", "learner-dashboard", "learning", "prof
         (
             f"mfe-env-config-runtime-definitions-{mfe_app}",
             """
-        const { WhiteLogo, MenuWrapper, SandboxFooter } = await import(
+        const { MenuWrapper, SandboxFooter } = await import(
             /* webpackFetchPriority: "eager" */
-            '@opencraft/frontend-plugin-sandbox-headers-and-footers'
+            '@opencraft/frontend-plugin-sandbox'
         );
         """,
         )
@@ -89,20 +89,6 @@ for mfe_app in ["account", "discussions", "learner-dashboard", "learning", "prof
             ),
             (
                 mfe_app,
-                "org.openedx.frontend.layout.header_logo.v1",
-                """
-            {
-              op: PLUGIN_OPERATIONS.Insert,
-              widget: {
-                id: 'custom_logo',
-                type: DIRECT_PLUGIN,
-                RenderWidget: WhiteLogo,
-              },
-
-            }""",
-            ),
-            (
-                mfe_app,
                 "org.openedx.frontend.layout.header_desktop_user_menu.v1",
                 """
             {
@@ -129,7 +115,7 @@ hooks.Filters.ENV_PATCHES.add_item(
         (
             f"mfe-env-config-runtime-definitions-catalog",
             """
-            const { CatalogBanner } = await import('@opencraft/frontend-plugin-sandbox-headers-and-footers');
+            const { CatalogBanner } = await import('@opencraft/frontend-plugin-sandbox');
             """,
         )
     )

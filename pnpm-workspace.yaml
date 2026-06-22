@@ -1,0 +1,13 @@
+allowBuilds:
+  '@bundled-es-modules/glob': false
+  '@parcel/watcher': false
+  core-js: false
+  core-js-pure: false
+  sharp: false
+  style-dictionary: false
+  unrs-resolver: false
+blockExoticSubdeps: true
+# Supply chain security configuration. See https://pnpm.io/supply-chain-security for more information.
+minimumReleaseAge: 4320 # 3 days
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 43200 # 30 days

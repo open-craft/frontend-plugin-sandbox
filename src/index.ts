@@ -23,7 +23,7 @@ export const slotSettings = {
       },
     ],
   },
-  desktop_user_menu_slot: {
+  'org.openedx.frontend.layout.header_desktop_user_menu.v1': {
     keepDefault: true,
     plugins: [
       {
@@ -33,7 +33,7 @@ export const slotSettings = {
       },
     ],
   },
-  mobile_user_menu_slot: {
+  'org.openedx.frontend.layout.header_mobile_user_menu.v1': {
     keepDefault: true,
     plugins: [
       {
@@ -43,7 +43,7 @@ export const slotSettings = {
       },
     ],
   },
-  footer_slot: {
+  'org.openedx.frontend.layout.footer.v1': {
     plugins: [
       {
         op: PLUGIN_OPERATIONS.Hide,

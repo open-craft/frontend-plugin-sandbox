@@ -20,6 +20,6 @@ export const SandboxFooter = () => (
     <div className="text-center d-block d-md-none my-4">
       <img className="openedx-logo" alt="Powered by Open edX" src="https://openedx.org/wp-content/uploads/2025/07/Powered-by-Open-edX-WHITE.png" />
     </div>
-    <div className="text-center text-md-left"><small>&copy; OpenCraft 2025  |  edX and Open edX&reg; are trademarks of edX Inc</small></div>
+    <div className="text-center text-md-left"><small>&copy; OpenCraft 2026  |  edX and Open edX&reg; are trademarks of edX Inc</small></div>
   </footer>
 );
